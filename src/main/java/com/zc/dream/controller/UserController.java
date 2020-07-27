@@ -44,7 +44,7 @@ public class UserController {
         return ResultGenerator.genSuccessResult(user);
     }
 
-    @GetMapping("/page/test")
+    @GetMapping("/page")
     public Result list(@RequestParam(defaultValue = "0") Integer page, @RequestParam(defaultValue = "0") Integer size) {
         PageHelper.startPage(page, size);
         List<User> list = userService.findAll();
