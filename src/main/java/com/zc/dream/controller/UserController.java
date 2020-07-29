@@ -15,13 +15,15 @@ import java.util.List;
 * Created by CodeGenerator on 2020/07/27.
 */
 @RestController
-@RequestMapping("/user")
-public class UserController {
+@RequestMapping("/wx/user")
+public class UserController extends BaseController{
+
     @Resource
     private UserService userService;
 
     @PostMapping
     public Result add(@RequestBody User user) {
+        hasObject(user,"用户信息为");
         userService.save(user);
         return ResultGenerator.genSuccessResult();
     }

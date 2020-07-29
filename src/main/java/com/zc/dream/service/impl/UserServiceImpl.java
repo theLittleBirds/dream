@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import javax.annotation.Resource;
+import java.util.Date;
 
 
 /**
@@ -16,7 +17,13 @@ import javax.annotation.Resource;
 @Service
 @Transactional
 public class UserServiceImpl extends AbstractService<User> implements UserService {
+
     @Resource
     private UserMapper tBaseUserMapper;
 
+    @Override
+    public void save(User user) {
+        user.setCreatedate(new Date());
+        mapper.insertSelective(user);
+    }
 }

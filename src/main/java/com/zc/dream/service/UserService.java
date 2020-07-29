@@ -8,4 +8,5 @@ import com.zc.dream.core.Service;
  */
 public interface UserService extends Service<User> {
 
+    void save(User user);
 }
